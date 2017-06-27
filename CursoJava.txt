@@ -99,6 +99,19 @@ Ejemplo:
 - El servlet le pasa al JSP el objeto recibido quien lo procesa y devuelve al servlet el código HTML
 - El servlet devuelve al navegador
 
+PAra vincular Eclipse con Tomcat: necesitamos habilitar la perspecticva de servlets. Es una Vista. [Window | show | Servlet].
+Luego abajo en la pestaña de Server aparece Añadir un Servidor. Seleccionamos Apache | Tomcat. Luego tenemos que indicar el Catalina Home en la siguiente pestaña: C:\Program Files\Apache Software Foundation\Tomcat 8.5
+En la siguiente pestaña aparece Available o Configured para saber cuales son las app desplgegados o no disponibles.
+Cuando hacemos esto Eclipse se crea una instancia propia del Tomcat independiente de la otra. Es cómo un VirtualHost de Apache. Por este motivo
+debemos cambiar los puertos o dejar el original parado y usar solo este para que no haya colisiones de puertos.
+
+El servidor abajo se puede arrancar o parar. Con doble click aparecen las propiedades para configurarlo:
+
+Para crear un servlet: New File Dynamic Web Project. ContextRoot es la url del servlet mientras que Content Directory es el directorio.
+MArcamos el general web.xml delpoyment descriptor
+Ahora en la carpeta webContent hay que meter todo lo que no sean clases de java (JSP, imagenes, html etc...). Los .java van en src.
+
+
 
 DIA 3. Sevidor (Acceso a datos)
 --------------------------------
@@ -112,7 +125,9 @@ DIA 7. Servicios Web (REST)
 --------------------------------
 
 Hibernate (ORM). Es una capa entre datos y objetos. Necesita configuración. 
-POJO: Plain Old Java Object: Es la clase típica con atributos, constructor, setter y getter.
+POHO: Plain Old Java Object: Es la clase típica con atributos, constructor, setter y getter.
+
+
 
 
 ACTIVIDAD DIDÁCTICA (Entrega en biblioteca virtual)
