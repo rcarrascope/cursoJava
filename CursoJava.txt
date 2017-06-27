@@ -1,0 +1,124 @@
+﻿CURSO JAVA J2EE (Enterprise)
+--------------------------------
+DIA 1. Intro + Instalacion
+--------------------------------
+- Selección de los contenidos y explicación de qué es cada cosa
+- Modo de uso de VirtualBox
+- Herramienta Zoom it
+- Configuración Red
+	IP MV 		172.31.254.123 
+	IP Nueva para nuestro servidor 172.31.10.24
+	GateWay		172.31.0.5
+	DNS 1		172.31.0.5
+	DNS 2		8.8.8.8	
+	IP HOST:	172.31.255.254
+	
+	
+- ¿Qué hay presinstalado en la MV?
+	JDK o JSE 		: Java Standardad Edition. Permite compilar e interpretar. (Oracle)
+	JRE		  		: Sólo la MV de Java (Intérprete)
+	Eclipse	JEE  	: Incluye trabajar con JSE como desarroollar APps para servidor incluye JEE
+	XAMPP	  		: Apache, MySql, PHP, Perl, Mercury (email) y Tomcat (contenedor de servlets)
+	MySql WorkBench : Permite generara diagramas relacionales a partir de tablas existentes
+	LightScreen		: Capturador de pantallasw
+	ZoomIt			: Se entra con Ctrl + 1
+	Notepad++
+	7-Zip
+	Adobe Reader
+
+- Configuración de Firewall
+- Instalación de servicios: Mysql, Apache como servicio
+- MySql WorkBench. [atabase | Forward Engineer]
+- Panel de Control | JAva | Acerca De...versión]
+- Eclipse: Es portable. Al arrancar nos indica si queremos habilitar una regla en el firewall. Es necesario tener instalado Java.
+	- Al crear una clase indicar que queremos un void main
+	- Desde aquí se puede también crear 
+	- Las perspectivas se cambian en [Window | Perspectiva | Other]. Algunas de ellas la de Java, JavaEE, Web
+- Tomcat. Para abrir Tomcat abrimos Apache Tomcat. Copiamos en local y lo instalamos como administrador.
+
+
+
+
+
+DIA 2. Sevidor (Mantenimiento estado, Ajax)
+--------------------------------
+Tomcat: Pra usarlo con Eclipse debemos dejar el servicio en modo manual.
+Para que TOMCAT responda debemos crear una regla de Firewall que lo permita: Permitir por puerto TCP 8080  de nombre Tomcat.
+Tomcat es un contenedor de aplicaciones tipo Servlet. Los servlets son clases de Java (JEE) con la función de recibir peticiones HTTP,
+consultar cosas en el servidor y devolverlas en formato HTTP/XML/JSON. Los servlet pueden usar rutas que no son las que aparecen en la url.
+
+
+La configuración de tomcat está en conf/:
+ - tomcat-user.xml donde estan los roles y las credenciales del usuario.
+ - server.xml permite configurar el tomcat: puertos de detención del servidor, puerto de escucha y host. En el 
+	<Host name="localhost" appBase="" unpackWARs="true" autoDeploy="true"> Con esta conf. con pegar un fichero .war en esta carpeta lo despliega (de .war a carpeta) y lo publica.
+Siempre que se cambia el archivo hay que reiniciar el servicio.
+
+Al abrir el index del tomcat (localhost:8080) podemos usar el botón manager-app.
+
+Las etiquetas JSP empiezan por <%
+Servlet: Empiezan por public classs HelloWorld extends HttpServlet {...}. 
+	 Siempre necesita un método doGet(). Lo normal es que este invoque a un JSP que le genera una página y se la devuelve al servlet y el servlet se la devuelve al cliente.
+
+JDBC : Es una api para conectar con bases de datos. Otras: JPA, Servlets, JSP. Algunas clases de esta API son
+	Connection
+	Statement: Consulta
+	PrepareStatement: Consultas preparadas. Evita inyecciones de SQL, etc.
+	ResulSet : Cursor
+	SQLException
+
+JSR  : Son especificaciones de Java en modo texto que definen estas APIs.
+Las aplicaciones Tomcat pueden estar Publicadas/No publicadas y Activas/NoActivas.
+
+
+Desde la index de Tomcat seleccionamos First Web Applications
+Pulsamos here y no la descargamos al escritorio un war. Es un proyecto java para servidor, un empaquetado (como un jar). Lo podemos abrir con 7zip.
+Es una lista de archivos y tiene una carpeta WEB-INF y dentro classes mypackage. Tenemos un Hello.class que es un servlet compilado a bytecode. 
+Existen herramientas decompiladores que muestran el .class a partir del .war. Esto es por la configuación  de server.xml.
+
+Para publicarlo tenemos 2 opciones:
+- A mano copìamos en su carpeta (C:\ARchivos de programa\Apache Sw Fundation\Tomcat 8.5\webapps) el .war. Tomcat lo descomprime y lo publica.
+- Si nos conectamos al index de Tomcat App Manage vemos que está desplegada y publicada. Si damos a parar lo desactivamos. Replegar lo despublica y lo elimina de la carpeta incluso el war.
+
+O mediante web status. Para ello nos conectamos a la herramienta de publicación desde el navegador: localhost (http://172.31.10.25/8080 Esta no funciona) y abajo indicamos ARchivo war a desplegar.
+
+CATALINA_base es la variable de entorno que indica la raiz del Tomcat,
+Todos los .class pueden ser interpretados, aunque están en modo bytecode con un programa como Java Decompiler lo podemos abrir.
+
+Modelo-Vista-Controlador: Es una forma de trabajar estructurada en la que diferentes componentes desarrollan distinos trabajos:
+ - Modelo: Son clases de JAva que definen el POHO.
+ - Vista: Suelen ser JSP que devuelve la salida HTML
+ - Controlador: Se encarga de recibir la llamada, procesarla y devolver lo que diga JSP al cliente. Es el Servlet.
+
+Para desactivar el tomcat basta con usar un "telnet localhost 8005" y luego escribir SHUTDOWN que es el puerto configurado para el apagado y ejecutamos el SHUTDOWN.
+Esta orden pueda cambiarse en el server.xml para indicar que para parar el servicio sea otra palabra.
+
+Ejemplo: 
+- El cliente quiere escribir algo así en el navegador: http://.../app/ListadoEmp
+- El servlet usa dos clases: AccesoDatos. emplados.jar. Hay un método de AccesoDatos que devuelve un recordset con los datos de los usuarios.
+- El servlet le pasa al JSP el objeto recibido quien lo procesa y devuelve al servlet el código HTML
+- El servlet devuelve al navegador
+
+
+DIA 3. Sevidor (Acceso a datos)
+--------------------------------
+DIA 4. Maven - Hibernate (Gestor de proyectos) Automatiza tareas relacionadas con Eclipse tipo generar documentación.
+--------------------------------
+DIA 5. Hibernate (ORM)
+--------------------------------
+DIA 6. Spring (Framework de desarrollo Java) unsa Modelo Vista Controlador (MVC)
+--------------------------------
+DIA 7. Servicios Web (REST)
+--------------------------------
+
+Hibernate (ORM). Es una capa entre datos y objetos. Necesita configuración. 
+POJO: Plain Old Java Object: Es la clase típica con atributos, constructor, setter y getter.
+
+
+ACTIVIDAD DIDÁCTICA (Entrega en biblioteca virtual)
+Login | Informática y comunicaciones | 
+----------------------------------------------------------------
+Entrega: 1 semana después de que acabe el curso.
+
+
+Cursos interesados. Propuestas formación
