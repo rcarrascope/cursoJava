@@ -113,7 +113,20 @@ Ahora en la carpeta webContent hay que meter todo lo que no sean clases de java 
 
 DIA 3. Sevidor (Acceso a datos)
 --------------------------------
+RECORDAR: Al crear un server el Apache tompcat Service Genérico debe estar apagado para que la instancia de nuestro servidor de Eclipse tenga el puerto liberado.
 Entorno Eclipse: [Window | WebBrowser] Podemos seleccionar Chorme por defecto
+Para ejecutar run As | Run on server.
+Para poder usar anotaciones en Java (precedidas por @) necesitamos importar la clase donde se define.
+Ej:import javax.servlet.annotation.WebServlet;
+	@WebServlet (name=/Hola) //Define el nombre con el que queremos acceder al servlet. aDmite varios:
+	@WebServlet( urlPatterns={"/Hola","/Ey"})//Para invocarlos http://localhost:8080/PrimerProyecto/Hola o http://localhost:8080/PrimerProyecto/Ey
+
+
+A veces los deploys no funcionan bien, con lo que si hay fallos lo mejor es Removerlo de entrada. Si sigue fallando 
+Otra opción es ver la configucación de verdad: En nuestro usaurio \workspace\metadata\plugins\org.eclipse.wst.server.core\tm0p0\wtpwepapps\
+Lo que hay aquí es lo que está desplegado de verdad
+
+
 
 
 DIA 4. Maven - Hibernate (Gestor de proyectos) Automatiza tareas relacionadas con Eclipse tipo generar documentación.
