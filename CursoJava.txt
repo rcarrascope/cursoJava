@@ -111,10 +111,11 @@ Para crear un servlet: New File Dynamic Web Project. ContextRoot es la url del s
 MArcamos el general web.xml delpoyment descriptor
 Ahora en la carpeta webContent hay que meter todo lo que no sean clases de java (JSP, imagenes, html etc...). Los .java van en src.
 
-Hola
-
 DIA 3. Sevidor (Acceso a datos)
 --------------------------------
+Entorno Eclipse: [Window | WebBrowser] Podemos seleccionar Chorme por defecto
+
+
 DIA 4. Maven - Hibernate (Gestor de proyectos) Automatiza tareas relacionadas con Eclipse tipo generar documentación.
 --------------------------------
 DIA 5. Hibernate (ORM)
