@@ -126,7 +126,64 @@ A veces los deploys no funcionan bien, con lo que si hay fallos lo mejor es Remo
 Otra opción es ver la configucación de verdad: En nuestro usaurio \workspace\metadata\plugins\org.eclipse.wst.server.core\tm0p0\wtpwepapps\
 Lo que hay aquí es lo que está desplegado de verdad
 
+Importar proyectos. Es posible que al hacerlo haya errores. Por ejempl si nos da abjao en Errores: Description	Resource	Path	Location	Type
+Target runtime Apache Tomcat v8.0 is not defined.	EnviaYRecibe		Unknown	Faceted Project Problem
+[Propiedades del proyecto | Targeterd Runtimes | Desmarcamos el de arriba y marcamos el de abajo]
 
+Las cookies se guardan en Chrome en sqlLite y se pueden ver con algún visor de SQLLite.
+
+Servidor con recursos: how stuff works
+
+Las cookies se pueden enviar sólo a algunas rutas del servidor o sea cual sea la página.
+Para vr laas cookies podemos seleccionar en chrome el símbolo de la mismas
+Un servidor puede generar cookies de terceros que serán enviadas a otros para la publicidad
+
+
+Ejemplo HTML:
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().append("<!DOCTYPE html>");
+		response.getWriter().append("<html>");
+		response.getWriter().append("	<head>");
+		response.getWriter().append("		<title>Ejemplo de Servlet estático</title>");
+		response.getWriter().append("		<style>");
+		response.getWriter().append("			* { margin: 0; padding: 0; }");
+		response.getWriter().append("			section, article, aside, footer, header, nav, hgroup {");
+		response.getWriter().append("				display:block;}");
+		response.getWriter().append("			body {");
+		response.getWriter().append("				background-image: url(media/img/abstract-1780277_960_720.png);");
+		response.getWriter().append("				background-repeat: no-repeat;");
+		response.getWriter().append("				background-size: cover;}");
+		response.getWriter().append("			.main {width:70%;}");
+		response.getWriter().append("			.right {width:30%;}");
+		response.getWriter().append("				background-image: url(media/img/abstract-1780277_960_720.png);");
+		response.getWriter().append("			h1 {");
+		response.getWriter().append("				color: white}");
+		response.getWriter().append("			footer {");
+		response.getWriter().append("				position: absolute;");
+		response.getWriter().append("				bottom: 10px;");
+		response.getWriter().append("				height: 40px;");
+		response.getWriter().append("				color: white;}");
+		response.getWriter().append("		</style>");
+		response.getWriter().append("	</head>");
+		response.getWriter().append("		<div class='wrapper'>");
+		response.getWriter().append("			<body>");
+		response.getWriter().append("				<header>");
+		response.getWriter().append("					<h1>Ejemplo de Servlet estático</H1>");
+		response.getWriter().append("				</header>");
+		response.getWriter().append("				<nav>");
+		response.getWriter().append("				</nav>");
+		response.getWriter().append("				<section>");
+		response.getWriter().append("					<aside class='main'>");
+		response.getWriter().append("					</aside>");
+		response.getWriter().append("					<aside class='right'>");
+		response.getWriter().append("					</aside>");
+		response.getWriter().append("				</section>");
+		response.getWriter().append("				<footer>");
+		response.getWriter().append("					<quote>(c) 2017 Rubén Carrasco. Curso Java  Avanzado</quote>");
+		response.getWriter().append("				</footer>");
+		response.getWriter().append("			</body>");
+		response.getWriter().append("		</div>");
+		response.getWriter().append("</html>");
 
 
 DIA 4. Maven - Hibernate (Gestor de proyectos) Automatiza tareas relacionadas con Eclipse tipo generar documentación.
